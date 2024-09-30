@@ -156,6 +156,20 @@
       z-index: -1;
     }
 
+
+    .frontImg {
+      width: 25%;
+      height: 25%;
+    }
+
+    @media screen and (max-width: 768px) {
+      .frontImg {
+        width: 25%;
+        height: 25%;
+      }
+    }
+
+
     body::before {
       left: 10;
       background-image: url('./assets/Lflower.png');
@@ -188,9 +202,10 @@
     </header>
 
     <main class="px-3">
-      <div class="d-flex justify-content-center">
-        <img src="./assets/casamento1.jpg" class="d-block m-2" style="width: 30%; border: 2px solid #000;" alt="..." />
-        <img src="./assets/casamento2.jpg" class="d-block m-2" style="width: 50%; border: 2px solid #000;" alt="..." />
+      <div class="d-flex justify-content-center align-content-center">
+        <img src="./assets/casamento2.jpg" class="m-2 frontImg" style=" border: 2px solid #000;" alt="..." />
+        <img src="./assets/casamento3.jpg" class="m-2 frontImg" style="border: 2px solid #000;" alt="..." />
+        <img src="./assets/casamento1.jpg" class="m-2 frontImg" style="border: 2px solid #000;" alt="..." />
       </div>
       <div class="album py-5">
         <div class="container">
