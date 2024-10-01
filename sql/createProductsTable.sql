@@ -1,0 +1,1 @@
+CREATE TABLE `casamentodb`.`produtos` (`id` INT NOT NULL AUTO_INCREMENT , `nome` TEXT NOT NULL , `descricao` TEXT NOT NULL , `image` VARCHAR(255) NOT NULL , `link` TEXT NOT NULL, `claimed` TINYINT NOT NULL DEFAULT '0' , `firstname` VARCHAR(60) NULL , `lastname` VARCHAR(60) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
