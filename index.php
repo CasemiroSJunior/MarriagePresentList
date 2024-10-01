@@ -1,3 +1,12 @@
+<?php
+include 'db/products.php';
+$produtos = new productsQuery();
+$produtos->createConnection();
+$listaProdutos = $produtos->listProducts();
+?>
+<script>
+  alert(<?php echo $listaProdutos ?>);
+</script>
 <!DOCTYPE html>
 <html lang="en" class="h-100" data-bs-theme="auto">
 
@@ -7,9 +16,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="" />
-  <meta
-    name="author"
-    content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
   <meta name="generator" content="Hugo 0.122.0" />
   <title>Presentes Ana Beatriz & Casemiro</title>
 
@@ -210,29 +216,36 @@
       <div class="album py-5">
         <div class="container">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <?php for ($i = 0; $i < 10; $i++) { ?>
-              <div class="col" id=<?php $i ?>>
+            <?php foreach ($listaProdutos as $items) { ?>
+              <div class="col" id=<?php echo $items["id"] ?>>
                 <div class="card shadow-sm">
-                  <img class="product-image" src="https://via.placeholder.com/150" alt="..." />
+                  <img class="product-image" src="<?php echo $items['image'] ?>" alt="..." />
                   <div class="card-body">
                     <p class="card-text">
-                      This is a wider card with supporting text below as a natural
-                      lead-in to additional content. This content is a little bit
-                      longer.
+                      <?php echo $items["nome"] ?>
                     </p>
                     <div
-                      class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group p-2">
+                      class="d-flex justify-content-center align-items-center">
+                      <div class="btn-group p-2 d-flex ">
                         <a
-                          href="#"
-                          class="btn btn-md btn-outline-primary">
+                          href="<?php echo $items["link"] ?>"
+                          target="_blank"
+                          class="btn btn-md btn-primary m-2">
                           Sugestão de site
                         </a>
                         <form action="presentear.php" method="post">
-                          <input type="hidden" name="product_id" value="<?php echo $i; ?>">
-                          <button style="height: 100%; width: 100%;" type="submit" class="btn btn-md btn-outline-success">
-                            Presentear
-                          </button>
+                          <input type="hidden" name="id" value="<?php echo $items['id']; ?>">
+                          <?php if ($items['claimed'] == 1) { ?>
+                            <button style="height: 100%; width: 100%;" disabled class="btn btn-md btn-danger py-2 mt-2">
+                              Presenteado por <?php echo $items['firstname'] . " " . $items['lastname']; ?>
+                            </button>
+                          <?php } else { ?>
+                            <button style="height: 100%; width: 100%;" type="submit" class="btn btn-md btn-success py-2 mt-2">
+                              Presentear
+                            </button>
+                          <?php
+                          }
+                          ?>
                         </form>
                       </div>
                     </div>
