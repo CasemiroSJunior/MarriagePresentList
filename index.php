@@ -1,12 +1,13 @@
 <?php
-include 'db/products.php';
-$produtos = new productsQuery();
-$produtos->createConnection();
-$listaProdutos = $produtos->listProducts();
+  include 'db/products.php';  
+  $produtos = new productsQuery();
+  try{
+    $produtos->createConnection();
+    $listaProdutos = $produtos->listProducts();
+  }catch(PDOException $e){
+    echo "Erro: " . $e->getMessage();
+  }
 ?>
-<script>
-  alert(<?php echo $listaProdutos ?>);
-</script>
 <!DOCTYPE html>
 <html lang="en" class="h-100" data-bs-theme="auto">
 

@@ -6,7 +6,8 @@
     $link = $_POST['link'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
-    if ($_POST['claimed'] == "on") {
+    
+    if (isset($_POST['claimed']) || $_POST['claimed'] == "on") {
         $claimed = 1;
     } else {
         $claimed = 0;
