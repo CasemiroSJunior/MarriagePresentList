@@ -6,12 +6,8 @@
     $link = $_POST['link'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
+    $claimed = 1;
     
-    if (isset($_POST['claimed']) || $_POST['claimed'] == "on") {
-        $claimed = 1;
-    } else {
-        $claimed = 0;
-    }
     $image = "https://via.placeholder.com/150";
     $products->createProduct($nome, $descricao, $image, $link, $claimed, $firstname, $lastname);
     if ($products) {

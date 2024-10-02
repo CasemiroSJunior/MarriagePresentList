@@ -50,6 +50,11 @@
             $result = $this->executeQuery($query);
             return $result;
         } 
+        public function listNotClaimedProducts() {
+            $query = "SELECT * FROM produtos where claimed = 0";
+            $result = $this->executeQuery($query);
+            return $result;
+        } 
 
     }
 

@@ -85,7 +85,7 @@
             <p class="text-muted">Preencha os campos abaixo para cadastrar o presente.</p>
 
             <div class="form-floating mt-2">
-                <input type="text" class="form-control" name="nome" id="nome">
+                <input type="text" class="form-control" name="nome" id="nome" required>
                 <label for="nome">Produto: </label>
             </div>
             <div class="form-floating mt-2">
@@ -99,19 +99,14 @@
             </div>
 
             <div class="form-floating mt-2">
-                <input type="text" class="form-control" name="firstname" id="firstname">
+                <input type="text" class="form-control" name="firstname" id="firstname" required>
                 <label for="firstname">Seu nome: </label>
             </div>
+            <label for="lastname" class="form-label mt-2">Conhecido do(a):</label>
             <select class="form-select mt-2" name="lastname" id="lastname" aria-label="Conhecido do(a)" required>
                 <option value="Noivo">Noivo</option>
                 <option value="Noiva">Noiva</option>
             </select>
-            <div class="form-check mt-2">
-                <input class="form-check-input" type="checkbox" checked name="claimed" id="claimed">
-                <label class="form-check-label" for="claimed">
-                    Irei presentear isso
-                </label>
-            </div>
             <button class="btn btn-primary w-100 py-2 mt-2" type="submit">Adicionar presente</button>
 
 

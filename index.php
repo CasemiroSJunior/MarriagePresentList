@@ -3,7 +3,7 @@
   $produtos = new productsQuery();
   try{
     $produtos->createConnection();
-    $listaProdutos = $produtos->listProducts();
+    $listaProdutos = $produtos->listNotClaimedProducts();
   }catch(PDOException $e){
     echo "Erro: " . $e->getMessage();
   }
@@ -238,7 +238,7 @@
                           <input type="hidden" name="id" value="<?php echo $items['id']; ?>">
                           <?php if ($items['claimed'] == 1) { ?>
                             <button style="height: 100%; width: 100%;" disabled class="btn btn-md btn-danger py-2 mt-2">
-                              Presenteado por <?php echo $items['firstname'] . " " . $items['lastname']; ?>
+                              Produto já presenteado!
                             </button>
                           <?php } else { ?>
                             <button style="height: 100%; width: 100%;" type="submit" class="btn btn-md btn-success py-2 mt-2">

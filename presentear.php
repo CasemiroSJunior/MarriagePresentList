@@ -102,6 +102,8 @@ $product = $products->readProduct($_POST['id']);
           <input type="text" class="form-control" name="firstname" id="firstname" required>
           <label for="firstname">Nome: </label>
         </div>
+        
+        <label for="lastname" class="form-label mt-2">Conhecido do(a):</label>
         <select class="form-select mt-2" name="lastname" id="lastname" aria-label="Conhecido do(a)" required>
             <option value="Noivo">Noivo</option>
             <option value="Noiva">Noiva</option>
