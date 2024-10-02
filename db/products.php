@@ -3,7 +3,7 @@
     class productsQuery extends DatabaseConnector{
 
         public function createProduct($nome, $descricao, $image, $link, $claimed = 0, $firstname = null, $lastname = null) {
-            $query = "INSERT INTO produtos (:nome, descricao, image, link, claimed, firstname, lastname) VALUES ('$nome', '$descricao', '$image', '$link', $claimed, '$firstname', '$lastname')";
+            $query = "INSERT INTO produtos (nome, descricao, image, link, claimed, firstname, lastname) VALUES ('$nome', '$descricao', '$image', '$link', $claimed, '$firstname', '$lastname')";
             $result = $this->executeQuery($query);
             return $result;
         }
