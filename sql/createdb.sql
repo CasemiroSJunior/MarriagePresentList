@@ -1,1 +1,1 @@
-CREATE schema 'casamentodb';
+CREATE schema `casamentodb`;
